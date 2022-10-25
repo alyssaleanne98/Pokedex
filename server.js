@@ -1,17 +1,31 @@
 // Dependencies 
 const express = require('express');
-const app = express();
+const app = express()
+// const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 
 // Config
 const port = 3000
+
+
+// Middleware
+app.use(express.urlencoded(({extended:false})))
+// app.use(methodOverride('_method'));
+app.use(express.static('public'));
+
+
+
 // Database
-const Pokemon = require('../models/pokemon.js');
+const pokemon = require('./models/pokemon.js');
 
+// I N D U C E
 
-// // INDEX
-// app.get('/', (req, res) => {
-// res.render('index.ejs', { data: Pokemon });
-// });
+// INDEX
+app.get('/pokemon', (req, res) => {
+    res.send(pokemon)
+// res.render('index.ejs', { 
+//     allPokemon: pokemon });
+});
 
 
 // // SHOW
@@ -21,6 +35,6 @@ const Pokemon = require('../models/pokemon.js');
 
 // Listener 
 app.listen(port, () => {
-	console.log(`listening to gitpub on port ${port}`)
+	console.log(`listening to pokedex on port ${port}`)
 })
 
