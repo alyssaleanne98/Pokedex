@@ -28,9 +28,10 @@ app.get('/pokemon', (req, res) => {
 });
 
 //NEW
-// app.get('pokemon/new', (req, res) => {
-//     res.send("this is the new route")
-// });
+app.get('/pokemon/new', (req, res) => {
+    res.render('new.ejs')
+});
+
 
 
 // SHOW
