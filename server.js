@@ -10,22 +10,22 @@ const port = 3000
 // Middleware
 app.use(express.urlencoded(({ extended: false })))
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 
 
 // Database
-const Pokemon = require('./models/pokemon.js');
+const pokemon = require('./models/pokemon.js');
 
 // I N D U C E
 
 // INDEX
 app.get('/pokemon', (req, res) => {
-    res.send(Pokemon)
-    // res.render('index.ejs', { 
-    //     allPokemon: Pokemon, 
-    })
-// })
+    // res.send('hi there')
+    res.render('index.ejs', {
+        allPokemons: pokemon
+    });
+});
 
 //NEW
 // app.get('pokemon/new', (req, res) => {
@@ -33,13 +33,13 @@ app.get('/pokemon', (req, res) => {
 // });
 
 
-// // SHOW
-//what is req.params.id? this is an object containing the parameter values parsed from the URL path. the "name" from the url path will be available when you use req.params.name.
+// SHOW
+
 app.get('/pokemon/:id', (req, res) => {
     console.log(req.params)
-    console.log(Pokemon[req.params.id])
+    console.log(pokemon[req.params.id])
     res.render('show.ejs', {
-        allPokemon: Pokemon[req.params.id],
+        allPokemon: pokemon[req.params.id],
     });
 });
 
