@@ -32,6 +32,12 @@ app.get('/pokemon/new', (req, res) => {
     res.render('new.ejs')
 });
 
+// Delete
+app.delete('/pokemon/:id', (req, res) => {
+    console.log("delete route")
+    pokemon.splice(req.params.id, 1); // this removes the item from the array 
+    res.redirect('/pokemon'); // redirect back to index route 
+});
 
 
 // SHOW
@@ -44,14 +50,40 @@ app.get('/pokemon/:id', (req, res) => {
     });
 });
 
+//Update
+// app.put('/pokemon/:id', (req, res) =>{
+
+//     let editPokemon = {
+//         name: req.body.name,
+//         type: req.body.type,
+//         abilities: req.body.abilities,
+//         speed: req.body.speed,
+//     }
+//     pokemon[req.params.id] = editPokemon
+//     res.redirect('/pokemon')
+// })
 
 
-// //CREATE 
-// app.post('/pokemon', (req, res) => {
-//     res.send("this is the create route")
-// });
+//CREATE 
+app.post('/pokemon', (req, res) => {
+    console.log(req.body)
 
-// //EDIT
+
+    let newPokemon = {
+        name: req.body.name,
+        type: req.body.type,
+        abilities: req.body.abilities,
+        speed: req.body.speed,
+    }
+    pokemon.push(newPokemon)
+    res.redirect('/pokemon')
+})
+
+
+
+
+
+//EDIT
 // app.get('/pokemon/:id/edit', (req, res) => {
 //     res.send("this is the edit route")
 // });
