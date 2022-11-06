@@ -34,37 +34,27 @@ app.get('/pokemon/new', (req, res) => {
 
 // Delete
 app.delete('/pokemon/:id', (req, res) => {
-    console.log("delete route")
     pokemon.splice(req.params.id, 1); // this removes the item from the array 
     res.redirect('/pokemon'); // redirect back to index route 
 });
 
 
-// SHOW
-
-app.get('/pokemon/:id', (req, res) => {
-    console.log(req.params)
-    console.log(pokemon[req.params.id])
-    res.render('show.ejs', {
-        allPokemon: pokemon[req.params.id],
-    });
-});
 
 //Update
-// app.put('/pokemon/:id', (req, res) =>{
+app.put('/pokemon/:id', (req, res) =>{
 
-//     let editPokemon = {
-//         name: req.body.name,
-//         type: req.body.type,
-//         abilities: req.body.abilities,
-//         speed: req.body.speed,
-//     }
-//     pokemon[req.params.id] = editPokemon
-//     res.redirect('/pokemon')
-// })
+    let editPokemon = {
+        name: req.body.name,
+        type: req.body.type,
+        abilities: req.body.abilities,
+        speed: req.body.speed,
+    }
+    pokemon[req.params.id] = editPokemon
+    res.redirect('/pokemon')
+})
 
 
-//CREATE 
+// //CREATE 
 app.post('/pokemon', (req, res) => {
     console.log(req.body)
 
@@ -84,9 +74,22 @@ app.post('/pokemon', (req, res) => {
 
 
 //EDIT
-// app.get('/pokemon/:id/edit', (req, res) => {
-//     res.send("this is the edit route")
-// });
+app.get('/pokemon/:id/edit', (req, res) => {
+    res.render('edit.ejs', {
+        allPokemon: pokemon[req.params.id], 
+        id: req.params.id,
+    }) // pass in an object that contains    
+});
+
+// SHOW
+app.get('/pokemon/:id', (req, res) => {
+    console.log(req.params)
+    console.log(pokemon[req.params.id])
+    res.render('show.ejs', {
+        allPokemon: pokemon[req.params.id],
+        pokemonIndex: req.params.id,
+    });
+});
 
 
 // Listener 
