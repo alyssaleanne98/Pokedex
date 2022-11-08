@@ -43,18 +43,25 @@ app.delete('/pokemon/:id', (req, res) => {
 //Update
 app.put('/pokemon/:id', (req, res) =>{
 
-    let editPokemon = {
+    let newPokemon = {
         name: req.body.name,
         type: req.body.type,
-        abilities: req.body.abilities,
-        speed: req.body.speed,
+        img: req.body.img,
+        stats: {
+            hp: req.body.hp,
+            attack: req.body.attack,
+            defense: req.body.defense,
+            spattack: req.body.spattack,
+            spadefense: req.body, spadefense,
+            speed: req.body, speed, 
+        }
     }
-    pokemon[req.params.id] = editPokemon
+    pokemon[req.params.id] = newPokemon
     res.redirect('/pokemon')
 })
 
 
-// //CREATE 
+//CREATE 
 app.post('/pokemon', (req, res) => {
     console.log(req.body)
 
@@ -62,22 +69,26 @@ app.post('/pokemon', (req, res) => {
     let newPokemon = {
         name: req.body.name,
         type: req.body.type,
-        abilities: req.body.abilities,
-        speed: req.body.speed,
+        img: req.body.img,
+        stats: {
+            hp: req.body.hp,
+            attack: req.body.attack,
+            defense: req.body.defense,
+            spattack: req.body.spattack,
+            spadefense: req.body, spadefense,
+            speed: req.body, speed, 
+        }
     }
     pokemon.push(newPokemon)
     res.redirect('/pokemon')
 })
 
 
-
-
-
 //EDIT
 app.get('/pokemon/:id/edit', (req, res) => {
     res.render('edit.ejs', {
         allPokemon: pokemon[req.params.id], 
-        id: req.params.id,
+        index: req.params.id,
     }) // pass in an object that contains    
 });
 

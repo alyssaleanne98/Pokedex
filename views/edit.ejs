@@ -9,11 +9,29 @@
 <body>
     <h1> Edit pokemon page </h1>
 
-    <form action="/pokemon/<%=id%>?_method=PUT" method="POST">
+    <form action="/pokemon/<%=index%>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" value="<%=allPokemon.name%>" />
         <br/>
-        <input type="submit" name="" value="Submit Changes" />
+        <label for="name">Type:</label>
+        <input type="text" name="name" value="<%=allPokemon.type%>" />
+        <br/>
+        <label for="name">Attack:</label>
+        <input type="text" name="name" value="<%=allPokemon.stats.attack%>" />
+        <br/>
+        <label for="name">Defense:</label>
+        <input type="text" name="name" value="<%=allPokemon.stats.defense%>" />
+        <br/>
+        <label for="name">Spattack:</label>
+        <input type="text" name="name" value="<%=allPokemon.stats.spattack%>" />
+        <br/>
+        <label for="name">Spdefense:</label>
+        <input type="text" name="name" value="<%=allPokemon.stats.spdefense%>" />
+        <br/>
+        <label for="name">Speed:</label>
+        <input type="text" name="name" value="<%=allPokemon.stats.speed%>" />
+        <br/>
+        </h2><button class = 'btn'><a href="/pokemon">Back to Pokédex Home</a></button>
     </form>
     
 </body>

@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+    body {
+        background-color: red;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +15,15 @@
 <body>
     <main class="show-main">
         <h1><%= allPokemon.name%></h1>
-        <div><h3><%= allPokemon.type%></h3></div>
+        <div><h4>Type: <%= allPokemon.type%></h4></div>
+        <div><h4>Hp: <%= allPokemon.stats.hp%></h4></div>
+        <div><h4>Attack: <%= allPokemon.stats.attack%></h4></div>
+        <div><h4>Defense: <%= allPokemon.stats.defense%></h4></div>
+        <div><h4>Spattack: <%= allPokemon.stats.spattack%></h4></div>
+        <div><h4>Spadefense: <%= allPokemon.stats.spadefense%></h4></div>
+        <div><h4>Speed: <%= allPokemon.stats.speed%></h3></div>
         <div><img src="<%= allPokemon.img %>"></div>  
-        
+
     </main>
     
 </body>

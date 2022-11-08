@@ -2,30 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <style>
+        .flex-container {
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        body {
+            background-color: rgb(93, 130, 215);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image: url("aloladex_background_by_sn_lolz_dbn3qmh-pre.jpeg");
+            font-size: 25px;
+            
+        }
+
+        img {
+            height: 150px;
+            width: 150px;
+            border: 5px solid;
+            border-color:rgb(125, 121, 121);
+        }
+        li {
+            display: inline-block;
+        }
+        .btn {
+            background-color: rgb(245, 239, 239);
+
+        }
+    </style>
+
+
 </head>
+<title>Pokédex</title>
 
 <body>
-    <div class="flex-container"></div>
-    <main>
+    <div class="flex-container">
         <ul>
-            <a href="/pokemon/new">Create New Pokemon</a>
-            <h1> POKEDEX </h1>
-            <li>
+            <button class = 'btn'><a href="/pokemon/new">Create New Pokemon</a></button>
+            <h1> Pokédex </h1>
             <% for(let i=0; i < allPokemons.length; i++) { %>
-                <a href="/pokemon/<%=i %>"> <img src= <%= allPokemons[i].img %>></a>
-                <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" />
-                </form>
+                <li>
+                    <h3>
+                        <%= allPokemons[i].name%>
+                    </h3>
+                    <a href="/pokemon/<%=i %>"><img src=<%=allPokemons[i].img %>></a>
+                    <h3>
+                        <%= allPokemons[i].id%>
+                    </h3>
 
-                <a href="/pokemon/<%=i%>/edit">Edit</a>
-            </li>
-            <% } %>
+                    <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" />
+                    </form>
+                    
+                    <button class = 'btn'><a href="/pokemon/<%=i%>/edit">EDIT</a></button>
+
+                    
+
+                </li>
+                <% } %>
+
         </ul>
-    </main>
     </div>
 </body>
 
