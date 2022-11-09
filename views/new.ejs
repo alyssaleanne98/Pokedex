@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+
+<style>
+    body {
+            /* background-color: rgb(238, 105, 71); */
+            font-family: 'sans-serif';
+            font-size: 25px; 
+            background-image: url("https://img-9gag-fun.9cache.com/photo/aZB1WLV_460swp.webp");
+            text-align: center;
+            background-size: 1700px;
+        }
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,17 +19,18 @@
 <body>
     <h1> Create New Character</h1>
     <form action="/pokemon" method="POST">
-        Name: <input type="text" name="name" placeholder="new pokémon" required /> <br/>
-        Type: <input type="text" name="type" placeholder="eg. " required /> <br/>
-        Hp: <input type="text" name="abilities" placeholder="eg. " required /> <br/>
-        Attack: <input type="text" name="attack" placeholder="eg. " required /> <br/>
-        Defense: <input type="text" name="defense" placeholder="eg. " required /> <br/>
-        Spattack: <input type="text" name="spattack" placeholder="eg. " required /> <br/>
-        Spadefense: <input type="text" name="spadefense" placeholder="eg. " required /> <br/>
-        Speed: <input type="text" name="speed" placeholder="eg. " required /> <br/>
-        <input type="submit" value="CREATE"> <br/>
-    
+        Name: <input type="text" name="name" required /> <br/>
+        Image: <input type="text" name="image" required /> <br/>
+        Type: <input type="text" name="type" required /> <br/>
+        Hp: <input type="text" name="hp" required /> <br/>
+        Attack: <input type="text" name="attack" required /> <br/>
+        Defense: <input type="text" name="defense" required /> <br/>
+        Spattack: <input type="text" name="spattack" required /> <br/>
+        Spdefense: <input type="text" name="spdefense" required /> <br/>
+        Speed: <input type="text" name="speed" required /> <br/>
+        Image URL: <input type="text" name="image" required /> <br/>
 
+        <input type="submit" value="CREATE"> <br/>
     </form>
 </body>
 </html>

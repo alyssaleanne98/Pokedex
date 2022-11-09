@@ -52,8 +52,8 @@ app.put('/pokemon/:id', (req, res) =>{
             attack: req.body.attack,
             defense: req.body.defense,
             spattack: req.body.spattack,
-            spadefense: req.body, spadefense,
-            speed: req.body, speed, 
+            spdefense: req.body.spdefense,
+            speed: req.body.speed, 
         }
     }
     pokemon[req.params.id] = newPokemon
@@ -68,6 +68,7 @@ app.post('/pokemon', (req, res) => {
 
     let newPokemon = {
         name: req.body.name,
+        id: req.body.id,
         type: req.body.type,
         img: req.body.img,
         stats: {
@@ -75,8 +76,8 @@ app.post('/pokemon', (req, res) => {
             attack: req.body.attack,
             defense: req.body.defense,
             spattack: req.body.spattack,
-            spadefense: req.body, spadefense,
-            speed: req.body, speed, 
+            spdefense: req.body.spdefense,
+            speed: req.body.speed, 
         }
     }
     pokemon.push(newPokemon)
